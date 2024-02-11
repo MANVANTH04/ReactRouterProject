@@ -5,6 +5,7 @@ import Home from "./pages/Home.jsx"
 import About from "./pages/About.jsx"
 import Faq from './pages/Help/Faq.jsx'
 import Contact from './pages/Help/Contact.jsx'
+import NotFound from './pages/NotFound.jsx'
 //layouts
 
 import RootLayout from './Layouts/RootLayout.jsx'
@@ -22,6 +23,8 @@ function App() {
           <Route path="faq" element={<Faq/>}/>
           <Route path="contact" element = {<Contact/>}/>
         </Route>
+
+        <Route path='*' element={<NotFound/>}/>
 
       </Route>
 
