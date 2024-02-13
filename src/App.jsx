@@ -7,11 +7,15 @@ import Faq from './pages/Help/Faq.jsx'
 import Contact from './pages/Help/Contact.jsx'
 import NotFound from './pages/NotFound.jsx'
 import Career,{gettingdata} from './pages/Career.jsx'
+import CareerDetails, { CareerDetailsLoader } from './pages/CareerDetails.jsx'
+import CareerError from './pages/CareerError.jsx'
 //layouts
 
 import RootLayout from './Layouts/RootLayout.jsx'
 import HelpLayout from './Layouts/HelpLayout.jsx'
 import CareerLayout from './Layouts/CareerLayout.jsx'
+
+
 
 function App() {
   const [count, setCount] = useState(0)
@@ -29,13 +33,9 @@ function App() {
           <Route path="contact" element = {<Contact/>}/>
         </Route>
 
-        <Route path='career' loader={gettingdata} element={<CareerLayout/>}>
-          <Route index loader={gettingdata} element={<Career />}>
-            
-
-
-
-          </Route>
+        <Route path='career' loader={gettingdata} errorElement={<CareerError/>} element={<CareerLayout/>} >
+          <Route index loader={gettingdata} element={<Career />}/>
+          <Route path=':id' loader={CareerDetailsLoader}  element={<CareerDetails/>}/>
         </Route>
 
         <Route path='*' element={<NotFound/>}/>

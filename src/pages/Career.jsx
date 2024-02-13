@@ -1,33 +1,31 @@
-import React from 'react'
-import { Link, useLoaderData } from 'react-router-dom'
+import { Link, useLoaderData } from "react-router-dom"
 
+export default function Careers() {
+  const careers = useLoaderData()
 
-
-const Career = () => {
-    const careers = useLoaderData()
-    
   return (
-    <div className='careers'>
-    <h1> Career</h1>
-    {careers.map(career=>(
-        <Link to={`/career/${career.id}`} > 
-        <p>{career.title}</p>
-        <p>Based in {career.location}</p>
+    <div className="careers">
+      {careers.map(career => (
+        <Link to={career.id.toString()} key={career.id}>
+          <p>{career.title}</p>
+          <p>Based in {career.location}</p>
         </Link>
-    ))}
+      ))}
     </div>
   )
 }
 
-export default Career
+// data loader
+export const gettingdata = async () => {
+  const res = await fetch('http://localhost:4000/careers')
 
+  if (!res.ok) {
+    throw Error('Could not fetch the list of careers')
+  }
 
-//loader function
-
- export const gettingdata = async ()=>{
-   const res = await fetch("http://localhost:4000/careers")
-    
-    return res.json()
+  return res.json()
 }
-
+    // console.log("Data fetched:", data); // Log the fetched data
+   
 // export gettingdata
+

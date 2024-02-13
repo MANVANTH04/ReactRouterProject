@@ -25,17 +25,3 @@ export default CareerLayout
 
 
 
-// <div className="career-details">
-// {careers.map(career=>(
-//     <>
-//     <h2>Career details for </h2>
-//     <p> Title :- {career.title} </p>
-//     <p>Starting Salary:- {career.salary} </p>
-//     <p>Location:- {career.location}</p>
-//     </>
-// ))}
-
-//     <p>Lorem ipsum dolor sit amet consectetur, adipisicing elit. Praesentium mollitia voluptatem 
-//     laboriosam nobis soluta iure, autem, tenetur consectetur dolorem culpa minima repudiandae eligendi.
-//      Asperiores itaque nesciunt harum fugit distinctio at!</p>
-// </div>
