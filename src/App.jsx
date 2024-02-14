@@ -4,7 +4,7 @@ import {createBrowserRouter, createRoutesFromElements, useLoaderData, RouterProv
 import Home from "./pages/Home.jsx"
 import About from "./pages/About.jsx"
 import Faq from './pages/Help/Faq.jsx'
-import Contact from './pages/Help/Contact.jsx'
+import Contact, {contactAction} from './pages/Help/Contact.jsx'
 import NotFound from './pages/NotFound.jsx'
 import Career,{gettingdata} from './pages/Career.jsx'
 import CareerDetails, { CareerDetailsLoader } from './pages/CareerDetails.jsx'
@@ -30,7 +30,7 @@ function App() {
 
         <Route path="help" element={<HelpLayout/>}>
           <Route path="faq" element={<Faq/>}/>
-          <Route path="contact" element = {<Contact/>}/>
+          <Route path="contact" action={contactAction} element = {<Contact/>}/>
         </Route>
 
         <Route path='career' loader={gettingdata} errorElement={<CareerError/>} element={<CareerLayout/>} >
